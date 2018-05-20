@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     static final List<DataModel> DATA_MODELS =
             Arrays.asList(
                     new DataModel("Hello World !!", HelloLithoActivity.class),
-                    new DataModel("A layout with two children", TwoChildrenActivity.class),
+                    new DataModel("Custom Component", TwoChildrenActivity.class),
                     new DataModel("A plain list", PlainListActivity.class)
             );
 

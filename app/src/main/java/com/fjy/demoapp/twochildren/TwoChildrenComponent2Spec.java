@@ -15,11 +15,11 @@ import com.facebook.yoga.YogaPositionType;
 import com.fjy.demoapp.R;
 
 @LayoutSpec
-public class TwoChildrenComponentSpec {
+public class TwoChildrenComponent2Spec {
   @OnCreateLayout
   static Component onCreateLayout(
       ComponentContext c,
-      @Prop(resType = ResType.COLOR) int textColor,
+      @Prop(resType = ResType.COLOR) int textColorRes,
       @Prop String title) {
 
       return Column.create(c)
@@ -35,7 +35,7 @@ public class TwoChildrenComponentSpec {
                       Text.create(c)
                               .text(title)
                               .textSizeDip(30)
-                              .textColorRes(textColor)
+                              .textColorRes(textColorRes)
                               .positionType(YogaPositionType.ABSOLUTE)// 如果把这一行注释掉，就是垂直方向的线性布局
                               .build()
               )

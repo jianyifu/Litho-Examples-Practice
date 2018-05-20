@@ -1,6 +1,7 @@
 package com.fjy.demoapp.list;
 
 import android.graphics.Color;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.facebook.litho.annotations.FromEvent;
@@ -12,6 +13,7 @@ import com.facebook.litho.sections.annotations.OnCreateChildren;
 import com.facebook.litho.sections.common.DataDiffSection;
 import com.facebook.litho.sections.common.RenderEvent;
 import com.facebook.litho.sections.common.SingleComponentSection;
+import com.facebook.litho.sections.widget.GridRecyclerConfiguration;
 import com.facebook.litho.sections.widget.ListRecyclerConfiguration;
 import com.facebook.litho.sections.widget.RecyclerCollectionComponent;
 import com.facebook.litho.widget.ComponentRenderInfo;
@@ -34,9 +36,9 @@ public class ListSection2Spec {
                                 .component(
                                         RecyclerCollectionComponent.create(c)
                                                 .disablePTR(true)
-                                                .recyclerConfiguration(new ListRecyclerConfiguration(LinearLayoutManager.HORIZONTAL, /*reverse layout*/ false, SNAP_TO_CENTER))
+                                                .recyclerConfiguration(new ListRecyclerConfiguration(LinearLayoutManager.HORIZONTAL,/*reverse layout*/ false,SNAP_TO_CENTER))
                                                 .section(
-                                                        DataDiffSection.<Integer>create(c)
+                                                        DataDiffSection.<DataModel>create(c)
                                                                 .data(generateData(32))
                                                                 .renderEventHandler(ListSection2.onRender(c))
                                                 )
@@ -46,7 +48,7 @@ public class ListSection2Spec {
                                 .build()
                 )
                 .child(
-                        DataDiffSection.<Integer>create(c)
+                        DataDiffSection.<DataModel>create(c)
                                 .data(generateData(32))
                                 .renderEventHandler(ListSection2.onRender(c)))
                 .build();
@@ -54,22 +56,24 @@ public class ListSection2Spec {
 
 
     @OnEvent(RenderEvent.class)
-    static RenderInfo onRender(final SectionContext c, @FromEvent Integer model,@FromEvent int index) {
+    static RenderInfo onRender(final SectionContext c, @FromEvent DataModel model,@FromEvent int index) {
         return ComponentRenderInfo.create()
                 .component(
-                        ListItem.create(c)
-                                .color(model % 2 == 0 ? Color.WHITE : Color.LTGRAY)
-                                .title(model + ". Hello, world! index = "+index)
-                                .subtitle("Litho tutorial")
+                        ListItem2.create(c)
+                                .dataModel(model)
                                 .build())
                 .build();
     }
 
-    private static List<Integer> generateData(int count) {
-        final List<Integer> data = new ArrayList<>(count);
+    private static List<DataModel> generateData(int count) {
+        final List<DataModel> data = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
-            data.add(i);
-        }
+            DataModel model = new DataModel();
+            model.color = (i % 2 == 0 ? Color.WHITE : Color.LTGRAY);
+            model.title = i + ". Hello, world!";
+            model.subtitle = "Litho tutorial";
+            data.add(model);
+         }
         return data;
     }
 }

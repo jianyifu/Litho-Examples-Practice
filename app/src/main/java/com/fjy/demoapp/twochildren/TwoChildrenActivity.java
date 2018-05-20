@@ -17,11 +17,15 @@ public class TwoChildrenActivity extends AppCompatActivity {
 
         final LithoView lithoView = LithoView.create(
                 this /* context */,
-                TwoChildrenComponent.create(c)
-                        .title("Overlaid layer text !!!")
-                        .textColor(R.color.overlay_text_color)
+                TwoChildrenComponent1.create(c)
                         .build());
 
+//        final LithoView lithoView = LithoView.create(
+//                this /* context */,
+//                TwoChildrenComponent2.create(c)
+//                        .title("Overlaid layer text !!!")
+//                        .textColorRes(R.color.overlay_text_color)
+//                        .build());
         setContentView(lithoView);
     }
 
