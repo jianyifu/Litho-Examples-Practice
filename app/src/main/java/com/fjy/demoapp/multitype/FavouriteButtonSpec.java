@@ -23,14 +23,21 @@ import com.facebook.litho.Row;
 import com.facebook.litho.StateValue;
 import com.facebook.litho.annotations.FromEvent;
 import com.facebook.litho.annotations.LayoutSpec;
+import com.facebook.litho.annotations.OnCreateInitialState;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.OnEvent;
 import com.facebook.litho.annotations.OnUpdateState;
+import com.facebook.litho.annotations.Param;
+import com.facebook.litho.annotations.Prop;
 import com.facebook.litho.annotations.State;
 
 @LayoutSpec
 public class FavouriteButtonSpec {
 
+  @OnCreateInitialState
+  static void createInitialState(ComponentContext c, StateValue<Boolean> favourited , @Prop Artist artist){
+    favourited.set(artist.favourited);
+  }
   @OnCreateLayout
   static Component onCreateLayout(ComponentContext c, @State boolean favourited) {
     return Row.create(c)

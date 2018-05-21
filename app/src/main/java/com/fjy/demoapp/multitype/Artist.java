@@ -11,10 +11,15 @@ public class Artist implements Datum {
   public final String[] images;
   public final int year;
 
-  public Artist(String name, String biography, int year, String... images) {
+  public final boolean favourited;
+
+
+
+  public Artist(String name, String biography, int year, boolean favourited, String... images) {
     this.name = name;
     this.biography = biography;
     this.year = year;
+    this.favourited = favourited;
     this.images = images;
   }
 

@@ -1,6 +1,5 @@
 package com.fjy.demoapp.multitype;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.facebook.litho.ComponentContext;
@@ -20,6 +19,7 @@ public class MutiTypeActivity extends BaseActivity {
                                     + "One of his better known works is "
                                     + "of a eighteen year old Queen Victoria.",
                             1800,
+                            true,
                             "https://upload.wikimedia.org/wikipedia/commons/3/33/George_Francis_Lyon.jpg"),
                     new Artist(
                             "Louis and Fritz Wolff",
@@ -27,6 +27,7 @@ public class MutiTypeActivity extends BaseActivity {
                                     + "were nineteenth century lithographers who composed scenes of buildings, squares "
                                     + "and everyday urban life.",
                             1802,
+                            false,
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/B\u00F6ckingen_am_See_1848_Gebr_Wolff.jpg/512px-B\u00F6ckingen_am_See_1848_Gebr_Wolff.jpg"),
                     new Decade(1810),
                     new Artist(
@@ -35,6 +36,7 @@ public class MutiTypeActivity extends BaseActivity {
                                     + "student of Pierre Lacour, Lassalle was a painter and lithographer in the "
                                     + "mid-1800s.",
                             1813,
+                            false,
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Atlas_pittoresque_pl_004.jpg/512px-Atlas_pittoresque_pl_004.jpg",
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Atlas_pittoresque_pl_119.jpg/512px-Atlas_pittoresque_pl_119.jpg"),
                     new Artist(
@@ -42,6 +44,7 @@ public class MutiTypeActivity extends BaseActivity {
                             "Jule Arnout, pupil of his father, Jean Baptiste Arnout, captured "
                                     + "landscapes, monuments and cities from France, Switzerland, Italy and England.",
                             1814,
+                            true,
                             "https://upload.wikimedia.org/wikipedia/commons/0/0e/Sommerset_house_by_ARNOUT%2C_LOUIS_JULES_-_GMII.jpg",
                             "https://upload.wikimedia.org/wikipedia/commons/2/2d/Arnout_Boulevard_St_Martin.jpg",
                             "https://upload.wikimedia.org/wikipedia/commons/a/ac/Jules_Arnout_Saint_Isaac%27s_Cathedral.jpg",
@@ -53,6 +56,7 @@ public class MutiTypeActivity extends BaseActivity {
                                     + "photographer, but his efforts to capture his hometown of Belgrade started with "
                                     + "paint and lithography.",
                             1817,
+                            false,
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Victory_of_King_Milutin_over_the_Tatars%2C_Anastas_Jovanovi\u0107_%281853%29.jpg/512px-Victory_of_King_Milutin_over_the_Tatars%2C_Anastas_Jovanovi\u0107_%281853%29.jpg"),
                     new Decade(1830),
                     new Artist(
@@ -60,6 +64,7 @@ public class MutiTypeActivity extends BaseActivity {
                             "Little is known about this French lithographer, except that he worked in "
                                     + "Spain in the latter half of the  1800s.",
                             1830,
+                            false,
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Iglesia_Compa\u00F1ia_Chile.JPG/512px-Iglesia_Compa\u00F1ia_Chile.JPG"),
                     new Decade(1850),
                     new Artist(
@@ -68,6 +73,7 @@ public class MutiTypeActivity extends BaseActivity {
                                     + "producing ten works in 1882/3.  Many of his prints, such as \"Sorrow\" and \"At "
                                     + "Eternity's Gate\" he also captured in other media.",
                             1853,
+                            false,
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Van_Gogh_-_In_the_Orchard_-_1883.jpg/512px-Van_Gogh_-_In_the_Orchard_-_1883.jpg",
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Vincent_Van_Gogh_27.JPG/512px-Vincent_Van_Gogh_27.JPG"),
                     new Artist(
@@ -76,20 +82,23 @@ public class MutiTypeActivity extends BaseActivity {
                                     + "was bestowed the title of \"Graphic Chronicler of the Restoration\" due to his "
                                     + "683 graphic works during the time of King Alfonso XII.",
                             1854,
+                            true,
                             "https://upload.wikimedia.org/wikipedia/commons/c/cf/Duque_de_Sesto_pide_la_mano_de_Mar%C3%ADa_de_las_Mercedes_de_Orleans.jpg",
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Inauguraci\u00F3n_de_la_Estaci\u00F3n_definitiva_del_ferrocarril_de_Madrid_a_Ciudad_Real_y_Badajoz_%28Comba%29.jpg/512px-Inauguraci\u00F3n_de_la_Estaci\u00F3n_definitiva_del_ferrocarril_de_Madrid_a_Ciudad_Real_y_Badajoz_%28Comba%29.jpg",
                             "https://upload.wikimedia.org/wikipedia/commons/1/1b/Palacio-del-Pardo-1885-Juan-Comba.jpg")
             };
 
+
+    private static final int FAVOURITE_CHANGE_EVENT_ID = 0x0001;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(
-                LithoView.create(
-                        this,
-                        LithographyRootComponent.create(new ComponentContext(this))
-                                .dataModels(Arrays.asList(DATA))
-                                .build()));
+        LithographyRootComponent component = LithographyRootComponent.create(new ComponentContext(this))
+                .dataModels(Arrays.asList(DATA))
+                .build();
+        LithoView lithoView = LithoView.create(this, component);
+        setContentView(lithoView);
     }
 }

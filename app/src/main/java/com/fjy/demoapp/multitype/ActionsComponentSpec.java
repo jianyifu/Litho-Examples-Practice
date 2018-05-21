@@ -17,6 +17,7 @@ import com.facebook.litho.ComponentContext;
 import com.facebook.litho.Row;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
+import com.facebook.litho.annotations.Prop;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaPositionType;
 
@@ -24,14 +25,16 @@ import com.facebook.yoga.YogaPositionType;
 public class ActionsComponentSpec {
 
   @OnCreateLayout
-  static Component onCreateLayout(ComponentContext c) {
+  static Component onCreateLayout(ComponentContext c, @Prop Artist artist) {
     return Row.create(c)
         .backgroundColor(0xDDFFFFFF)
         .positionType(YogaPositionType.ABSOLUTE)
         .positionDip(YogaEdge.RIGHT, 4)
         .positionDip(YogaEdge.TOP, 4)
         .paddingDip(YogaEdge.ALL, 2)
-        .child(FavouriteButton.create(c))
+        .child(
+                FavouriteButton.create(c)
+                .artist(artist))
         .build();
   }
 }
