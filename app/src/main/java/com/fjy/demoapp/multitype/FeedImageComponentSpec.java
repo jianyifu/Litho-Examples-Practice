@@ -34,6 +34,8 @@ import com.facebook.litho.sections.widget.RecyclerCollectionComponent;
 import com.facebook.litho.sections.widget.RecyclerConfiguration;
 import com.facebook.litho.widget.ComponentRenderInfo;
 import com.facebook.litho.widget.RenderInfo;
+import com.fjy.demoapp.GlideImage;
+
 import java.util.Arrays;
 
 @LayoutSpec
@@ -69,5 +71,7 @@ public class FeedImageComponentSpec {
     final DraweeController controller = Fresco.newDraweeControllerBuilder().setUri(image).build();
 
     return FrescoImage.create(c).controller(controller).imageAspectRatio(2f);
+//    return GlideImage.create(c).imageUrl(image).imageAspectRatio(2f).centerCrop(true);
   }
+
 }
