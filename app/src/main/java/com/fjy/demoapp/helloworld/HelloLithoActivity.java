@@ -6,13 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.LithoView;
 import com.facebook.litho.widget.Text;
+import com.fjy.demoapp.BaseActivity;
 
-public class HelloLithoActivity extends AppCompatActivity {
-    private static final String TAG = HelloLithoActivity.class.getSimpleName();
-    @Override
+public class HelloLithoActivity extends BaseActivity {
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(TAG);
 
         final ComponentContext c = new ComponentContext(this);
 

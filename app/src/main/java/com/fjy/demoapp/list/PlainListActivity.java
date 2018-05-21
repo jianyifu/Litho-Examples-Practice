@@ -8,8 +8,9 @@ import com.facebook.litho.ComponentContext;
 import com.facebook.litho.LithoView;
 import com.facebook.litho.sections.SectionContext;
 import com.facebook.litho.sections.widget.RecyclerCollectionComponent;
+import com.fjy.demoapp.BaseActivity;
 
-public class PlainListActivity extends AppCompatActivity {
+public class PlainListActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

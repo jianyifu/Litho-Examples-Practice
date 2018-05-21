@@ -5,10 +5,11 @@ import android.os.Bundle;
 
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.LithoView;
+import com.fjy.demoapp.BaseActivity;
 
 import java.util.Arrays;
 
-public class MutiTypeActivity extends AppCompatActivity {
+public class MutiTypeActivity extends BaseActivity {
     private static final Datum[] DATA =
             new Datum[] {
                     new Decade(1800),

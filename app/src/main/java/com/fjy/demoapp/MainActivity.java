@@ -13,7 +13,7 @@ import com.fjy.demoapp.twochildren.TwoChildrenActivity;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     static final List<DataModel> DATA_MODELS =
             Arrays.asList(
                     new DataModel("Hello World !!", HelloLithoActivity.class),
