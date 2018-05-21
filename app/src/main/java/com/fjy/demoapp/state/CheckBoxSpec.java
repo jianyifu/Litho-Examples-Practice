@@ -51,12 +51,15 @@ public class CheckBoxSpec {
 
     @OnEvent(ClickEvent.class)
     static void onClickText(ComponentContext c,@State boolean isChecked){
+        //just read the state value of isChecked
         Log.d(TAG, "onClickText() called with: c = [" + c + "], isChecked = [" + isChecked + "]");
         CheckBox.updateCheckBox(c);
     }
 
     @OnUpdateState
     static void updateCheckBox(StateValue<Boolean> isChecked){
+        //whenever updateState method is called ,it will trigger onCreateLayout  whether or not change the state value
+        //change the state value of isChecked
         isChecked.set(!isChecked.get());
     }
 }
