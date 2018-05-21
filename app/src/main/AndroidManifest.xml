@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".helloworld.HelloLithoActivity" />
         <activity android:name=".twochildren.TwoChildrenActivity" />
-        <activity android:name=".list.PlainListActivity"></activity>
+        <activity android:name=".list.PlainListActivity" />
+        <activity android:name=".multitype.MutiTypeActivity"></activity>
     </application>
 
 </manifest>

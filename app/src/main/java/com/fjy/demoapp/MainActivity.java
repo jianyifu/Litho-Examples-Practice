@@ -7,6 +7,7 @@ import com.facebook.litho.ComponentContext;
 import com.facebook.litho.LithoView;
 import com.fjy.demoapp.helloworld.HelloLithoActivity;
 import com.fjy.demoapp.list.PlainListActivity;
+import com.fjy.demoapp.multitype.MutiTypeActivity;
 import com.fjy.demoapp.twochildren.TwoChildrenActivity;
 
 import java.util.Arrays;
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
             Arrays.asList(
                     new DataModel("Hello World !!", HelloLithoActivity.class),
                     new DataModel("Custom Component", TwoChildrenActivity.class),
-                    new DataModel("A plain list", PlainListActivity.class)
+                    new DataModel("A plain list", PlainListActivity.class),
+                    new DataModel("Muti-type list",MutiTypeActivity.class)
             );
 
     static final class DataModel {
